@@ -64,7 +64,8 @@ systemctl enable mariadb
 mysql_secure_installation
 echo $password
 echo $password
-
+firewall-cmd --add-service=mysql --permanent
+firewall-cmd --reload
 
 
 
