@@ -55,6 +55,16 @@ systemctl restart httpd
 echo "50%"
 sleep 5
 
+#instaler mariaDb
+echo "Intalar MariaDb"
+password=$(</dev/urandom tr -dc A-Za-z0-9 | head -c12)
+yum -y install mariadb-server
+systemctl start mariadb
+systemctl enable mariadb
+mysql_secure_installation
+echo $password
+echo $password
+
 
 
 
