@@ -41,8 +41,8 @@ yum install phpmyadmin -y&> /dev/null
 echo "50%"
 systemctl start mariadb
 systemctl enable mariadb
-firewall-cmd --zone=public --remove-port=80/tcp --permanent
-firewall-cmd --zone=public --remove-port=3306/tcp --permanent
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
 firewall-cmd --reload
 echo "52%"
 
