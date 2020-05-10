@@ -21,18 +21,30 @@ systemctl enable httpd
 systemctl restart httpd
 #instalar php
 echo "Instalar php"
-yum -y install php php-mbstring php-pear &> /dev/null
+rpm -iUvh https://download-ib01.fedoraproject.org/pub/epel/6/SRPMS/Packages/e/epel-release-6-8.src.rpm &> /dev/null
+yum install -y yum-utils &> /dev/null
+yum-config-manager --enable remi-php74 &> /dev/null
+yum update -y &> /dev/null
+yum -y install php php-mysqlnd php-pdo php-mbstring php-pear php-pecl-zip php-mcrypt php-gd php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel php74-php-cli php74u-json php72-runtime &> /dev/null
 systemctl restart httpd
 echo "20%"
+#instalar Unzip
+echo "Intalando Unzip"
+yum install unzip &> /dev/null
+Echo "21%"
 #instalar phpMyAdmin y mariaDb
-#echo "Instalar phpMyAdmin y mariaDb"
-#yum -y install httpd mariadb-server mariadb php php-mysql php-gd php-pear php-mbstring &> /dev/null
-#systemctl start mariadb
-#systemctl enable mariadb
-#firewall-cmd --zone=public --remove-port=80/tcp --permanent
-#firewall-cmd --zone=public --remove-port=3306/tcp --permanent
-#firewall-cmd --reload
-#echo "50%"
+echo "Instalar phpMyAdmin y mariaDb"
+yum -y install mariadb-server mariadb &> /dev/null
+systemctl restart httpd
+echo "30%"
+yum install phpmyadmin -y&> /dev/null
+echo "50%"
+systemctl start mariadb
+systemctl enable mariadb
+firewall-cmd --zone=public --remove-port=80/tcp --permanent
+firewall-cmd --zone=public --remove-port=3306/tcp --permanent
+firewall-cmd --reload
+echo "52%"
 
 
 
