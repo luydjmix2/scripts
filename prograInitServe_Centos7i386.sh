@@ -24,3 +24,9 @@ sleep 2
 yum -y install httpd
 echo "15%"
 sleep 2
+#instalar epel wget y screen
+echo "Intalar epel wget screen"
+sleep 2
+yum -y install epel-release wget screen
+echo "16%"
+sleep 2
