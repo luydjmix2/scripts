@@ -27,6 +27,8 @@ yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum-config-manager --enable remi-php74
 yum --enablerepo=remi -y install php74-php-mysql php74-php-mcrypt
 yum --enablerepo=epel -y install phpMyAdmin
+Ip=$(hostname -i)
+sed -i "s|Require ip 127.0.0.1|Require ip 127.0.0.1 \"$Ip/24\"|g" /etc/httpd/conf.d/phpMyAdmin.conf
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
 firewall-cmd --reload
