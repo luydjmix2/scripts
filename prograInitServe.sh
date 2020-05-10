@@ -4,18 +4,22 @@
 echo "Actulisar servidor"
 yum -y update
 echo "10%"
+sleep 5
 #instalar ifconfig
 echo "Instalar ifconfig"
 yum -y install net-tools
 echo "12%"
+sleep 5
 #instalar nano
 echo "Instalar nano"
 yum -y install nano
 echo "13%"
+sleep 5
 #instalar apache
 echo "Instalar apache"
 yum -y install httpd
 echo "15%"
+sleep 5
 systemctl start httpd
 systemctl enable httpd
 systemctl restart httpd
@@ -34,10 +38,12 @@ firewall-cmd --zone=public --add-port=3306/tcp --permanent
 firewall-cmd --reload
 systemctl restart httpd
 echo "40%"
+sleep 5
 #instalar Unzip
 echo "Intalando Unzip"
 yum install unzip
 echo "41%"
+sleep 5
 #instalar php
 echo "Instalar php"
 rpm -iUvh https://download-ib01.fedoraproject.org/pub/epel/6/SRPMS/Packages/e/epel-release-6-8.src.rpm
@@ -47,6 +53,7 @@ yum update -y
 yum -y install php74-php php74-php-mysqlnd php74-php-pdo php74-php-mbstring php74-php-pear php74-php-pecl-zip php74-php-mcrypt php74-php-gd php74-php-gd php74-php-ldap php74-php-odbc php74-php-pear php74-php-xml php74-php-xmlrpc php74-php-mbstring php74-php-soap curl curl-devel
 systemctl restart httpd
 echo "50%"
+sleep 5
 
 
 
