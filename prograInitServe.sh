@@ -25,7 +25,7 @@ rpm -iUvh https://download-ib01.fedoraproject.org/pub/epel/6/SRPMS/Packages/e/ep
 yum install -y yum-utils
 yum-config-manager --enable remi-php74
 yum update -y
-yum -y install php php-mysqlnd php-pdo php-mbstring php-pear php-pecl-zip php-mcrypt php-gd php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel php74-php-cli php74u-json
+yum -y install php php-mysqlnd php-pdo php-mbstring php-pear php-pecl-zip php-mcrypt php-gd php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-develyum -y install php php-mysqlnd php-pdo php-mbstring php-pear php-pecl-zip php-mcrypt php-gd php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel
 systemctl restart httpd
 echo "20%"
 #instalar Unzip
