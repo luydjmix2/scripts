@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #actulisar servidor
-echo "Actulisar servidor"
+echo "Actulizar servidor"
 yum -y update
 echo "10%"
 sleep 5
